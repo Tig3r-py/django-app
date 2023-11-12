@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% load static %}
+{% block content %}
+  <div class="general">
+    <div class="container-fluid">
+      <h1>Le 10 città piu famose d'Italia</h1>
+      <div class="d-flex justify-content-center mt-3">
+        <div class="row justify-content-md-center">
+        {% for x in data %}
+          <div class="col-sm py-2">
+            <div class="card text-center" style="width: 18rem; height: 450px;">
+              <img src="{{ x.immagine.url }}" class="card-img-top" alt="foto di {{ x.nome_luogo}}">
+              <p class="card-text my-0"><small class="text-body-secondary mt-0">
+                {{ x.autore | safe }}
+              </small></p>
+              <div class="card-body my-0">
+                <h5 class="card-title">{{ x.nome_luogo }}</h5>
+                <p class="card-text">{{ x.sintesi }}</p>
+                <a href="../{{x.nome_luogo}}/" class="btn btn-primary">Scopri</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

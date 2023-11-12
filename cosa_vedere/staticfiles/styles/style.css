@@ -1,0 +1,32 @@
+/*cookies*/
+body.with-cookie-bar {
+    padding-top: 35px;
+}
+
+.cookie-bar {
+    position: fixed;
+    width: 100%;
+    top:50px;
+    text-align:center;
+    height:25px;
+    line-height: 25px;
+    background: #eee;
+}
+.cookie-group{
+    position: relative;
+    bottom: 0;
+}
+/* home */
+h1{
+    text-align: center;
+}
+.general{
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5em;
+    z-index: 1;
+    background-color: #e5e4e3;
+}
+
+/* città */

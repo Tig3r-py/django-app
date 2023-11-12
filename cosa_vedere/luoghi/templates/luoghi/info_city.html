@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} cosa vedere a {{ object.nome_luogo }} {% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/style_city.css' %}">
+<div class="general_city">
+    <div class="content-fluid">
+        <div class="row">
+            <div class="col-lg-1 col-sm-1 col-xl-1">
+            </div>
+            <div class="col-lg-10 col-sm-10 col-xl-10">
+                <div id="info">        
+                    <div class="first-image">
+                        <img src="{{ object.immagine.url }}" alt="">
+                        <div id="autore">
+                            <p id="autore-p">{{ object.autore | safe }}</p>
+                        </div>
+                    </div>
+                    <div class="content-introduction">
+                        <hr>
+                        <h2>10 cose da vedere a {{ object.nome_luogo }}</h2>
+                        <p>{{ object.descrizione_luogo | safe}}</p>           
+                    </div>  
+                    <div class="elenco-posti">
+                      {% for x in place %}
+                        <div class="card mb-3" style="width: 100%; border-color:rgb(255, 202, 199); border-width:3px;">
+                          <div class="row g-0 align-middle">
+                            <div class="col-md-4 " id="img-card">
+                              <div class="immagine">
+                                <img src="{{ x.immagine_45.url }}" class="img-fluid rounded-start" alt="..." id="immagine">
+                              </div> 
+                              <div id="autore-card">
+                                <p id="autore-p">{{ x.autore | safe }}</p>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title">{{ x.nome }}</h5>
+                                <p id="text-card" class="card-text"> {{ x.riassunto | safe }}</p>
+                                <p class="card-text"><small class="text-body-secondary">scopri di più: <a href="./{{x.nome}}/">{{x.nome}}</a></small></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>       
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-1 col-xl-1">
+            </div>
+        </div>
+    </div>  
+</div>
+<!-- metter card orizzontali con breve descrizione rimanda poi a una pagina con posizione e storia
+a fine pagine puoi mettere articoli correlati vedi: https://www.cosavederearoma.com/20-luoghi-da-vedere-assolutamente/-->
+{% endblock %}

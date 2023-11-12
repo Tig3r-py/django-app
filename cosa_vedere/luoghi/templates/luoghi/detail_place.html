@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} {{ data.nome }} {% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/style_city.css' %}">
+<div class="general_city">
+    <div class="content-fluid">
+        <div class="row">
+            <div class="col-lg-1 col-sm-1 col-xl-1">
+            </div>
+            <div class="col-lg-10 col-sm-10 col-xl-10">
+                <div id="info">        
+                    <div class="first-image">
+                        <img src="{{ data.immagine.url }}" alt="">
+                        <div id="autore">
+                            <p id="autore-p">{{ data.autore | safe }}</p>
+                        </div>
+                    </div>
+                    <div class="content-introduction">
+                        <hr>
+                        <h2>{{ data.nome }}</h2>
+                        <p>{{ data.descrizione | safe}}</p>           
+                    </div>       
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-1 col-xl-1">
+            </div>
+        </div>
+    </div>  
+</div>
+<!-- metter card orizzontali con breve descrizione rimanda poi a una pagina con posizione e storia
+a fine pagine puoi mettere articoli correlati vedi: https://www.cosavederearoma.com/20-luoghi-da-vedere-assolutamente/-->
+{% endblock %}
